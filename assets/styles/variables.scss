@@ -1,0 +1,23 @@
+@import '~assets/styles/colors.scss';
+
+// Globals
+$body-font-family: 'IBM Plex Sans', Arial, sans-serif;
+
+// v-btn
+$btn-border-radius: 6px;
+$btn-font-weight: 700;
+$btn-text-transform: none;
+$btn-icon-padding: 12px 36px;
+$btn-icon-padding: 100px;
+$btn-letter-spacing: normal;
+
+//breakpoints
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 1008px;
+$xl: 1312px;
+
+ //fonts
+$montserrat: 'Montserrat', Arial, sans-serif;
+$ibm-plex-sans: 'IBM Plex Sans', Arial, sans-serif;

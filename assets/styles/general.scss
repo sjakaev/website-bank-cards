@@ -1,0 +1,118 @@
+.grecaptcha-badge {
+    visibility: hidden;
+}
+
+.main-container {
+    display: flex;
+    font-family: $ibm-plex-sans;
+    line-height: 1.5;
+
+    &__wrap {
+        position: relative;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        max-width: 100%;
+        min-height: 100vh;
+        background-color: #F8F9FC;
+        backface-visibility: hidden;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+.page-enter-active, .page-leave-active {
+    transition: opacity .2s;
+}
+
+.page-enter, .page-leave-active {
+    opacity: 0;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 320px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: $black-800 !important;
+    background-color: #F8F9FC;
+
+    @media (min-width: $md) {
+        min-width: 720px !important;
+    }
+
+    @media (min-width: $lg) {
+        min-width: 960px !important;
+    }
+
+    @media (min-width: $xl) {
+        min-width: 1264px !important;
+    }
+
+    &__content-wrapper {
+        box-sizing: border-box;
+        margin: 0 auto;
+
+        @media (min-width: $md) {
+            min-width: 768px !important;
+            padding: 0 24px;
+        }
+
+        @media (min-width: $lg) {
+            min-width: 1008px !important;
+            padding: 0 24px;
+        }
+
+        @media (min-width: $xl) {
+            width: 1312px !important;
+            padding: 0 24px;
+        }
+
+        &_style_indent {
+            @media (max-width: $md) {
+                padding-right: 18px;
+                padding-left: 18px;
+            }
+        }
+    }
+}
