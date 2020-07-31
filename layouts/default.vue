@@ -1,12 +1,16 @@
 <template>
-  <div class="main-container">
-    <the-header />
-    <nuxt />
-  </div>
+    <div class="main-container">
+        <the-header />
+        <nuxt
+            class="main-container__content"
+        />
+        <the-footer />
+    </div>
 </template>
 
 <script>
 import TheHeader from '@/components/TheHeader'
+import TheFooter from '@/components/TheFooter'
 
 export default {
     components: {
@@ -19,6 +23,7 @@ export default {
     .main-container {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         box-sizing: border-box;
         width: 100%;
         min-width: 320px;

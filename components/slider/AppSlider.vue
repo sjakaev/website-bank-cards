@@ -1,71 +1,59 @@
 <template>
     <div class="app-slider">
-        <client-only>
-            <vue-tiny-slider
-                v-bind="slederOptions()"
+        <vue-tiny-slider
+            v-bind="slederOptions()"
+        >
+            <slot
+                v-if="isSlot"
             >
-                <slot
-                    v-if="isSlot"
-                >
-                </slot>
+            </slot>
 
-                <div
-                    :is="wrapperTag(slide)"
-                    v-for="(slide,i) in slides"
-                    v-else
-                    :key="`${slide.title}${i}`"
-                    :href="slide.href"
-                    class="app-slider__item"
+            <div
+                :is="wrapperTag(slide)"
+                v-for="(slide,i) in slides"
+                v-else
+                :key="`${slide.title}${i}`"
+                :href="slide.href"
+                class="app-slider__item"
+            >
+                <img
+                    :data-src="slide.src"
+                    :src="getSrc(slide.src)"
+                    :style="customImageStyle()"
+                    class="app-slider__image"
+                    :class="{ 'tns-lazy-img' : isLazyLoad }"
+                    :alt="slide.alt"
+                    :width="width"
+                    :height="height"
+                />
+            </div>
+        </vue-tiny-slider>
+
+        <ul
+            :class="`slider-nav-list-${name}`"
+            class="slider-nav-list"
+        >
+            <li
+                v-for="(slide,i) in slides"
+                :key="`${slide.title}${i}`"
+                class="slider-nav-list__item"
+            >
+                <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                 >
-                    <img
-                        :data-src="slide.src"
-                        :src="getSrc(slide.src)"
-                        :style="customImageStyle()"
-                        class="app-slider__image"
-                        :class="{ 'tns-lazy-img' : isLazyLoad }"
-                        :alt="slide.alt"
-                        :width="width"
-                        :height="height"
+                    <circle
+                        class="slider-nav-list__circle"
+                        cx="50%"
+                        cy="50%"
+                        fill="white"
                     />
-                </div>
-            </vue-tiny-slider>
-
-            <app-button
-                :class="`app-slider__prev_${name}`"
-                class="app-slider__prev-button"
-            />
-
-            <app-button
-                :class="`app-slider__next_${name}`"
-                class="app-slider__next-button"
-            />
-
-            <ul
-                :class="`slider-nav-list-${name}`"
-                class="slider-nav-list"
-            >
-                <li
-                    v-for="(slide,i) in slides"
-                    :key="`${slide.title}${i}`"
-                    class="slider-nav-list__item"
-                >
-                    <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <circle
-                            class="slider-nav-list__circle"
-                            cx="50%"
-                            cy="50%"
-                            fill="white"
-                        />
-                    </svg>
-                </li>
-            </ul>
-        </client-only>
+                </svg>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -74,7 +62,7 @@ import AppButton from '~/components/AppButton';
 
 const DEFAULT_WIDTH = '100%';
 const DEFAULT_HEIGHT = '100%';
-const DEFAULT_SPEED = 300;
+const DEFAULT_SPEED = 800;
 const DEFAULT_AUTOPLAY_TIMEOUT = 5000;
 const DEFAULT_BORDER_RADIUS = 0;
 
@@ -138,15 +126,15 @@ export default {
             defaultSliderOptions : {
                 nav                  : true,
                 navAsThumbnails      : true,
-                mouseDrag            : false,
+                mouseDrag            : true,
                 loop                 : true,
                 items                : 1,
-                prevButton           : `.app-slider__prev_${this.name}`,
-                nextButton           : `.app-slider__next_${this.name}`,
+                prevButton           : false,
+                nextButton           : false,
                 navContainer         : `.slider-nav-list-${this.name}`,
                 speed                : DEFAULT_SPEED,
                 autoplay             : true,
-                autoplayHoverPause   : true,
+                autoplayHoverPause   : false,
                 autoplayTimeout      : DEFAULT_AUTOPLAY_TIMEOUT,
                 autoplayButtonOutput : false,
             },
@@ -194,6 +182,10 @@ export default {
 .app-slider {
     position: relative;
     height: auto;
+
+    .tns-controls {
+        display: none;
+    }
 
     &__prev-button {
         left: 2%;

@@ -27,7 +27,8 @@ export default {
         '@nuxtjs/style-resources',
     ],
     modules: [
-        '@nuxtjs/axios'
+        '@nuxtjs/axios',
+        'nuxt-vue-multiselect'
     ],
     styleResources: {
         scss: ['~/assets/styles/variables.scss']

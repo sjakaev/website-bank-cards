@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
     "nuxt": "^2.13.0",
+    "nuxt-vue-multiselect": "^1.0.4",
     "vue-tiny-slider": "^0.1.39"
   },
   "devDependencies": {

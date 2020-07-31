@@ -38,6 +38,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        margin-bottom: 36px;
         background-color: #fffffe;
         -webkit-box-shadow: 0px 4px 15px -2px rgba(0,0,0,0.34);
         -moz-box-shadow: 0px 4px 15px -2px rgba(0,0,0,0.34);
