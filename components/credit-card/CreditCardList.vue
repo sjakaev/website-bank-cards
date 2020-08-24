@@ -28,6 +28,7 @@
 <style lang="scss" scoped>
 .credit-card-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }

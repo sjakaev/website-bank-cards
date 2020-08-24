@@ -50,12 +50,12 @@
             </li>
         </ul>
 
-        <n-nink
+        <n-link
             to="/"
             class="credit-card__button"
         >
             Подробнее
-        </n-nink>
+        </n-link>
     </li>
 </template>
 
@@ -70,11 +70,15 @@
 
         computed : {
             openingCost() {
-                return +this.card.openingCost ? this.card.openingCost : 'бесплатно' ;
+                return +this.card.openingCost
+                    ? this.card.openingCost + ' рублей'
+                    : 'бесплатно' ;
             },
 
             maintenanceCost() {
-                return +this.card.maintenanceCost ? this.card.maintenanceCost : 'бесплатно';
+                return +this.card.maintenanceCost
+                    ? this.card.maintenanceCost + ' рублей / год'
+                    : 'бесплатно';
             },
 
             bank() {

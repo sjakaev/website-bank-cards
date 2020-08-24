@@ -9,7 +9,7 @@
                 <li class="the-header__navigation-list">
                     <n-link
                         class="the-header__navigation-item"
-                        to="/credit"
+                        to="/credit-cards"
                     >
                         Кредитные карты
                     </n-link>
@@ -17,7 +17,7 @@
                 <li>
                     <n-link
                         class="the-header__navigation-item"
-                        to="/debit"
+                        to="/debit-cards"
                     >
                         Дебетовые карты
                     </n-link>

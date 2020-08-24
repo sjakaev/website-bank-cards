@@ -29,13 +29,13 @@
               class="main-buttons page-container__content-wrapper"
           >
               <n-link
-                  to="/credit"
+                  to="/credit-cards"
                   class="main-buttons__left-button"
               >
                   Кредитные карты
               </n-link>
               <n-link
-                  to="/debit"
+                  to="/debit-cards"
                   class="main-buttons__right-button"
               >
                   Дебетовые карты
@@ -139,6 +139,7 @@ export default {
             display: block;
             width: 575px;
             height: 190px;
+            padding-top: 58px;
             margin-right: 20px;
             background: linear-gradient(180deg, rgba(212, 72, 57, 0.9) 0%,
                 rgba(193, 58, 44, 0.9) 51.04%, rgba(255, 25, 0, 0.9) 100%);
@@ -155,6 +156,7 @@ export default {
             display: block;
             width: 575px;
             height: 190px;
+            padding-top: 58px;
             background: linear-gradient(180deg, rgba(51, 73, 93, 0.9) 0%,
                 rgba(59, 86, 111, 0.9) 51.56%, rgba(61, 130, 193, 0.9) 100%);
             opacity: 1;
