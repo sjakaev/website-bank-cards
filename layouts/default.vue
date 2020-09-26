@@ -10,11 +10,10 @@
 
 <script>
 import TheHeader from '@/components/TheHeader'
-import TheFooter from '@/components/TheFooter'
 
 export default {
     components: {
-        TheHeader
+        TheHeader,
     }
 }
 </script>

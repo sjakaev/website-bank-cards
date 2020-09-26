@@ -1,73 +1,63 @@
 <template>
-    <div>
-        <section class="filters">
-            <div class="filters__wrapper page-container__content-wrapper">
+    <div class="credit-cards">
+        <div class="credit-cards__filter-background">
+            <div class="page-container__content-wrapper">
                 <h1>Кредитные карты</h1>
-                <ul class="tag-list">
-                    <li
-                        v-for="(tag, index) in tags"
-                        :key="tag.type"
-                        class="tag-list__item"
-                    >
-                        <n-link
-                            class="tag-list__item-link"
-                            :to="`/credit-cards/${tag.slug}`"
-                        >
-                            {{ tag.name }}
-                        </n-link>
-                    </li>
-                </ul>
+                <tag-list
+                    :tags="tags"
+                />
 
+                <section class="credit-cards__filters">
+                    <div class="credit-cards__filter">
+                        <label class="typo__label">Банк</label>
+                        <multiselect
+                            v-model="selectBank"
+                            placeholder="Банк"
+                            :options="bankOptions"
+                            selectLabel=""
+                            deselectLabel=""
+                            selectedLabel=""
+                        />
+                    </div>
 
-                <div>
-                    <label class="typo__label">Single select / dropdown</label>
-                    <multiselect
-                        v-model="selectBank"
-                        placeholder="Банк"
-                        :options="bankOptions"
-                        :searchable="false"
-                        :allow-empty="false"
-                    />
-                    <pre class="language-json"><code>{{ selectBank }}</code></pre>
-                </div>
+                    <div class="credit-cards__filter">
+                        <label class="typo__label">Льготный период</label>
+                        <multiselect
+                            v-model="selectPeriod"
+                            placeholder="Банк"
+                            :options="periodOptions"
+                            selectLabel=""
+                            deselectLabel=""
+                            selectedLabel=""
+                        />
+                    </div>
 
-                <div>
-                    <label class="typo__label">Single select / dropdown</label>
-                    <multiselect
-                        v-model="selectPeriod"
-                        placeholder="Банк"
-                        :options="periodOptions"
-                        :searchable="false"
-                        :allow-empty="false"
-                    />
-                    <pre class="language-json"><code>{{ selectPeriod }}</code></pre>
-                </div>
+                    <div class="credit-cards__filter">
+                        <label class="typo__label">Кредитный лимит</label>
+                        <multiselect
+                            v-model="selectLimit"
+                            placeholder="Лимит"
+                            :options="limitOptions"
+                            selectLabel=""
+                            deselectLabel=""
+                            selectedLabel=""
+                        />
+                    </div>
 
-                <div>
-                    <label class="typo__label">Single select / dropdown</label>
-                    <multiselect
-                        v-model="selectLimit"
-                        placeholder="Лимит"
-                        :options="limitOptions"
-                        :searchable="false"
-                        :allow-empty="false"
-                    />
-                    <pre class="language-json"><code>{{ selectLimit }}</code></pre>
-                </div>
-
-                <div>
-                    <label class="typo__label">Single select / dropdown</label>
-                    <multiselect
-                        v-model="selectPercent"
-                        placeholder="Процент"
-                        :options="percentOptions"
-                        :searchable="false"
-                        :allow-empty="false"
-                    />
-                </div>
-
+                    <div class="credit-cards__filter">
+                        <label class="typo__label">Процентная ставка</label>
+                        <multiselect
+                            v-model="selectPercent"
+                            placeholder="Процент"
+                            :options="percentOptions"
+                            selectLabel=""
+                            deselectLabel=""
+                            selectedLabel=""
+                        />
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
 
         <section class="page-container__content-wrapper">
             <button
@@ -91,11 +81,13 @@
 import { cards, tags } from '~/data/creditCards';
 import Multiselect from 'vue-multiselect';
 import CreditCardList from '~/components/credit-card/CreditCardList';
+import TagList from '~/components/TagList';
 
 export default {
     components: {
         Multiselect,
         CreditCardList,
+        TagList,
     },
 
     data : () => ( {
@@ -169,25 +161,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.filters {
-    background: url('~assets/images/credit/filter-background.jpg') no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 395px;
-}
-    .tag-list {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        &__item-link {
-            display: block;
-            padding: 12px 18px;
-            background-color: white;
-            border: 1px solid #D44839;
-            box-sizing: border-box;
-            border-radius: 4px;
-        }
+.credit-cards {
+    &__filter-background {
+        background: url('~assets/images/credit/filter-background.jpg') no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 395px;
     }
+    &__filters {
+        display: flex;
+    }
+
+    &__filter {
+        width: 215px;
+    }
+}
 </style>
